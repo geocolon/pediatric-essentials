@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pediatricessentials
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pediatricessentials
+  template:
+    metadata:
+      labels:
+        app: pediatricessentials
+    spec:
+      containers:
+        - name: pediatricessentials
+          image: registry-url/pediatricessentials:latest
+          ports:
+            - containerPort: 80
